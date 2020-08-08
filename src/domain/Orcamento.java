@@ -1,7 +1,5 @@
 package domain;
 
-import chainOfRepository.Item;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,6 +21,6 @@ public class Orcamento {
         items.add(item);
     }
     public List<Item> getItems() {
-        return Collections.unmodifiableList(items);
+        return items;
     }
 }

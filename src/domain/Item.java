@@ -1,4 +1,4 @@
-package chainOfRepository;
+package domain;
 
 public class Item {
 

@@ -3,10 +3,27 @@ import service.*;
 import service.interfaces.Imposto;
 import service.interfaces.Investimento;
 
-public class TesteDeImpostos {
+public class AppProject {
     public static void main(String[] args) {
-        testeInvestimento();
-        testeOrcamento();
+//        testeInvestimento();
+//        testeOrcamento();
+        testeDescontos();
+
+    }
+
+    public static void testeDescontos(){
+        CalculadorDeDescontos descontos = new CalculadorDeDescontos();
+        Orcamento orcamento = new Orcamento(500);
+        orcamento.getItems().add(new Item("Calculadora", 700));
+        orcamento.getItems().add(new Item("Pasta", 300));
+        orcamento.getItems().add(new Item("Calculadora", 700));
+        orcamento.getItems().add(new Item("Pasta", 300));
+        orcamento.getItems().add(new Item("Calculadora", 700));
+        orcamento.getItems().add(new Item("Pasta", 300));
+        orcamento.getItems().add(new Item("Calculadora", 700));
+        orcamento.getItems().add(new Item("Pasta", 300));
+        double descontoFinal = descontos.cacula(orcamento);
+        System.out.println(descontoFinal);
     }
 
     public static void testeInvestimento(){
