@@ -1,3 +1,8 @@
+package service;
+
+import domain.Conta;
+import service.interfaces.Investimento;
+
 import java.util.Random;
 
 public class InvestimentoArrojado implements Investimento {

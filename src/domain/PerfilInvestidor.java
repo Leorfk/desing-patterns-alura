@@ -1,3 +1,5 @@
+package domain;
+
 public enum PerfilInvestidor {
     CONSERVADOR(0) ,
     MODERADO(1),

@@ -1,3 +1,8 @@
+import domain.*;
+import service.*;
+import service.interfaces.Imposto;
+import service.interfaces.Investimento;
+
 public class TesteDeImpostos {
     public static void main(String[] args) {
         testeInvestimento();
