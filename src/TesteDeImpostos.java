@@ -1,13 +1,32 @@
 public class TesteDeImpostos {
     public static void main(String[] args) {
-     Imposto iss = new ISS();
-     Imposto icms = new ICMS();
+        testeInvestimento();
+        testeOrcamento();
+    }
 
-     Orcamento orcamento = new Orcamento(5000.00);
+    public static void testeInvestimento(){
+        Conta conta = new Conta(1000.00);
 
-     CalculadorDeImpostos calculadorDeImpostos = new CalculadorDeImpostos();
+        Investimento arrojado = new InvestimentoArrojado();
+        Investimento moderado = new InvestimentoModerado();
+        Investimento conservador = new InvestimentoConservador();
+        RealizadorDeInvestimentos realizadorDeInvestimentos = new RealizadorDeInvestimentos();
+        realizadorDeInvestimentos.realiza(conta, arrojado);
+        realizadorDeInvestimentos.realiza(conta, moderado);
+        realizadorDeInvestimentos.realiza(conta, conservador);
+    }
 
-     calculadorDeImpostos.realizarCalculo(orcamento, iss);
-     calculadorDeImpostos.realizarCalculo(orcamento, icms);
+    public static void testeOrcamento(){
+        Imposto iss = new ISS();
+        Imposto icms = new ICMS();
+        Imposto iccc = new ICCC();
+
+        Orcamento orcamento = new Orcamento(5000.00);
+
+        CalculadorDeImpostos calculadorDeImpostos = new CalculadorDeImpostos();
+
+        calculadorDeImpostos.realizarCalculo(orcamento, iss);
+        calculadorDeImpostos.realizarCalculo(orcamento, icms);
+        calculadorDeImpostos.realizarCalculo(orcamento, iccc);
     }
 }
