@@ -21,8 +21,12 @@ public class FileXML implements Response {
                         conta.getSaldo() +
                     "</saldo>" +
                 "</conta>");
-        }else {
+        } else if(response != null){
             response.responde(requisicao, conta);
+        } else {
+            // não existe próxima na corrente, e ninguém atendeu a requisição!
+            // poderíamos não ter feito nada aqui, caso não fosse necessário!
+            throw new RuntimeException("Formato de resposta não encontrado");
         }
     }
 

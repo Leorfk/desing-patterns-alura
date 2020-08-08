@@ -3,5 +3,6 @@ package domain.enums;
 public enum Formato {
     CSV,
     XML,
-    PORCENTO
+    PORCENTO,
+    NO_FORMAT
 }

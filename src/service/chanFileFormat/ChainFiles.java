@@ -9,11 +9,10 @@ public class ChainFiles {
         Response response1 = new FileCSV();
         Response response2 = new FileXML();
         Response response3 = new FilePORCENTO();
-        Response response4 = new FileNoFormat();
 
         response1.nextResponseFormat(response2);
         response2.nextResponseFormat(response3);
-        response4.nextResponseFormat(response4);
+        response3.nextResponseFormat(null);
 
         response1.responde(request, conta);
     }

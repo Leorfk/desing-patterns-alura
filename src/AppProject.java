@@ -19,7 +19,7 @@ public class AppProject {
     public static void testeFileFormat(){
         ChainFiles chainFiles = new ChainFiles();
         Conta conta = new Conta(1000.00, "Leonardo Rodrigues Ferreira");
-        Requisicao request = new Requisicao(Formato.XML);
+        Requisicao request = new Requisicao(Formato.NO_FORMAT);
         chainFiles.generateFile(request, conta);
     }
 
