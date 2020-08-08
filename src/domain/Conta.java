@@ -2,9 +2,14 @@ package domain;
 
 public class Conta {
     private double saldo;
+    private String titular;
 
-    public Conta(double valor){
-        saldo = valor;
+    public Conta(double saldo, String titular) {
+        this.saldo = saldo;
+        this.titular = titular;
+    }
+
+    public Conta() {
     }
 
     public void depositar(double valor){
@@ -14,4 +19,9 @@ public class Conta {
     public double getSaldo(){
         return this.saldo;
     }
+
+    public String getTitular() {
+        return titular;
+    }
+
 }

@@ -4,9 +4,9 @@ public class Item {
 
     private String nome;
 
-    private int valor;
+    private double valor;
 
-    public Item(String nome, int valor) {
+    public Item(String nome, double valor) {
         this.nome = nome;
         this.valor = valor;
     }
@@ -19,11 +19,11 @@ public class Item {
         this.nome = nome;
     }
 
-    public int getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 }
