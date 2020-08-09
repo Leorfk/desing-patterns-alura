@@ -1,5 +1,6 @@
 import domain.*;
 import domain.builder.ItemNota;
+import domain.builder.ItemNotaBuilder;
 import domain.builder.NotaFiscal;
 import domain.builder.NotaFiscalBuilder;
 import domain.enums.Formato;
@@ -28,9 +29,11 @@ public class AppProject {
 
     public static void testeNotaFiscalBuilder(){
         NotaFiscalBuilder builder = new NotaFiscalBuilder();
+        ItemNotaBuilder itemNotaBuilder = new ItemNotaBuilder();
+        itemNotaBuilder.comNome("Carreta").comPreco(50000.00);
         builder.paraEmpresa("Teste")
                 .comCNPJ("00.000.000/0001-91")
-                .comItem(new ItemNota("Carreta", 50000.00))
+                .comItem(itemNotaBuilder.montarItem())
                 .comItem(new ItemNota("Caminhão", 150000.00))
                 .comObservacoes("Aquisição de nova frota XPTO")
                 .naDataAtual();
