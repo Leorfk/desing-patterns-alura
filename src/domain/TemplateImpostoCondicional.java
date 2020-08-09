@@ -12,9 +12,9 @@ public abstract class TemplateImpostoCondicional implements Imposto {
         }
     }
 
-    public abstract double minimaTaxacao(Orcamento orcamento);
+    protected abstract double minimaTaxacao(Orcamento orcamento);
 
-    public abstract double maximaTaxacao(Orcamento orcamento);
+    protected abstract double maximaTaxacao(Orcamento orcamento);
 
-    public abstract boolean deveUsarTaxacaoMaxima(Orcamento orcamento);
+    protected abstract boolean deveUsarTaxacaoMaxima(Orcamento orcamento);
 }
