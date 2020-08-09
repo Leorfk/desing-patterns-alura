@@ -1,11 +1,17 @@
 import domain.*;
+import domain.builder.ItemNota;
+import domain.builder.NotaFiscal;
+import domain.builder.NotaFiscalBuilder;
 import domain.enums.Formato;
 import service.*;
 import service.chanFileFormat.ChainFiles;
 import domain.Imposto;
 import service.interfaces.Investimento;
 
+import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class AppProject {
     public static void main(String[] args) {
@@ -16,7 +22,33 @@ public class AppProject {
 //        testeInpostoComposto();
 //        testeImpostoBrasileiro();
         //testeDescontoExtraUsandoState();
-        testeSaldoConta();
+        //testeSaldoConta();
+        testeNotaFiscalBuilder();
+    }
+
+    public static void testeNotaFiscalBuilder(){
+        NotaFiscalBuilder builder = new NotaFiscalBuilder();
+        builder.paraEmpresa("Teste")
+                .comCNPJ("00.000.000/0001-91")
+                .comItem(new ItemNota("Carreta", 50000.00))
+                .comItem(new ItemNota("Caminhão", 150000.00))
+                .comObservacoes("Aquisição de nova frota XPTO")
+                .naDataAtual();
+        NotaFiscal nf = builder.contruir();
+        System.out.println(nf.getValorBruto());
+//        List<ItemNota> itens = Arrays.asList(
+//                new ItemNota("Carreta", 50000.00),
+//                new ItemNota("Caminhão", 150000.00)
+//        );
+//        double valorTotal = 0;
+//        for (ItemNota item:itens) {
+//            valorTotal += item.getValor();
+//        }
+//
+//        double imposto = valorTotal*0.05;
+//
+//        NotaFiscal nf = new NotaFiscal("Teste", "00000000000191", Calendar.getInstance(), valorTotal, imposto, itens,
+//                "Items referentes a frota XPTO");
     }
 
     public static void testeSaldoConta(){
