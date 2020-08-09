@@ -4,6 +4,10 @@ import domain.builder.ItemNotaBuilder;
 import domain.builder.NotaFiscal;
 import domain.builder.NotaFiscalBuilder;
 import domain.enums.Formato;
+import domain.observer.EnviadorDeEmail;
+import domain.observer.EnviadorDeSMS;
+import domain.observer.Impressora;
+import domain.observer.NotaFiscalDAO;
 import service.*;
 import service.chanFileFormat.ChainFiles;
 import domain.Imposto;
@@ -25,6 +29,23 @@ public class AppProject {
         //testeDescontoExtraUsandoState();
         //testeSaldoConta();
         testeNotaFiscalBuilder();
+        testeNotaFiscalObserver();
+    }
+
+    public static void testeNotaFiscalObserver(){
+        NotaFiscalBuilder builder = new NotaFiscalBuilder();
+        builder.adicionarAcao(new EnviadorDeEmail());
+        builder.adicionarAcao(new NotaFiscalDAO());
+        builder.adicionarAcao(new EnviadorDeSMS());
+        builder.adicionarAcao(new Impressora());
+
+        NotaFiscal nf = builder.paraEmpresa("Teste")
+                .comCNPJ("00.000.000/0001-91")
+                .comItem(new ItemNota("XAP", 30.00))
+                .comItem(new ItemNota("Caminhão", 150000.00))
+                .comObservacoes("Aquisição de nova frota XPTO")
+                .naDataAtual()
+                .contruir();
     }
 
     public static void testeNotaFiscalBuilder(){

@@ -1,5 +1,7 @@
 package domain.builder;
 
+import domain.observer.AcaoAposGerarNota;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -12,6 +14,12 @@ public class NotaFiscalBuilder {
     private double imposto;
     private String observacao;
     private Calendar data;
+
+    public NotaFiscalBuilder(){
+        this.todasAcoesASeremExecutadas = new ArrayList<AcaoAposGerarNota>();
+    }
+
+    private  List<AcaoAposGerarNota> todasAcoesASeremExecutadas;
 
     private List<ItemNota> notaItens = new ArrayList<ItemNota>();
 
@@ -43,7 +51,15 @@ public class NotaFiscalBuilder {
     }
 
     public NotaFiscal contruir(){
-        return new NotaFiscal(razaoSocial, cnpj, data, valorBruto, imposto, notaItens, observacao);
+        NotaFiscal notaFiscal = new NotaFiscal(razaoSocial, cnpj, data, valorBruto, imposto, notaItens, observacao);
+        for (AcaoAposGerarNota acao:todasAcoesASeremExecutadas) {
+            acao.excutar(notaFiscal);
+        }
+        return notaFiscal;
+    }
+
+    public void adicionarAcao(AcaoAposGerarNota novaAcao){
+        this.todasAcoesASeremExecutadas.add(novaAcao);
     }
 
 }
