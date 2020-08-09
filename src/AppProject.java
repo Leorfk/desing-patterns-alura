@@ -15,7 +15,18 @@ public class AppProject {
         //testeFileFormat();
 //        testeInpostoComposto();
 //        testeImpostoBrasileiro();
-        testeDescontoExtraUsandoState();
+        //testeDescontoExtraUsandoState();
+        testeSaldoConta();
+    }
+
+    public static void testeSaldoConta(){
+        Conta conta = new Conta(1000.00, "Leonardo", new Date());
+        conta.depositar(1000.00);
+        System.out.println(conta.getSaldo());
+        conta.saca(2500.00);
+        System.out.println(conta.getSaldo());
+        conta.saca(2500.00);
+        System.out.println(conta.getSaldo());
     }
 
     public static void testeDescontoExtraUsandoState(){

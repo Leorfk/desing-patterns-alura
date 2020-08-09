@@ -1,27 +1,33 @@
 package domain;
 
+import service.conta.ContaStatus;
+import service.conta.Positivo;
+
 import java.util.Date;
 
 public class Conta {
     private double saldo;
     private String titular;
     private Date dataAbertura;
+    public ContaStatus estado;
 
     public Conta(double saldo, String titular, Date dataAbertura) {
         this.saldo = saldo;
         this.titular = titular;
         this.dataAbertura = dataAbertura;
+        estado = new Positivo();
     }
 
     public Conta() {
-    }
-
-    public void depositar(double valor){
-        this.saldo+=saldo;
+        estado = new Positivo();
     }
 
     public double getSaldo(){
         return this.saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
     public String getTitular() {
@@ -34,5 +40,12 @@ public class Conta {
 
     public void setDataAbertura(Date dataAbertura) {
         this.dataAbertura = dataAbertura;
+    }
+
+    public void depositar(double valor){
+        estado.depositar(this, valor);
+    }
+    public void saca(double valor){
+        estado.saca(this, valor);
     }
 }
