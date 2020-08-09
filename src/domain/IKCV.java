@@ -1,7 +1,5 @@
 package domain;
 
-import service.interfaces.Imposto;
-
 public class IKCV extends TemplateImpostoCondicional {
 
     private boolean temItemMaiorQueCemReais(Orcamento orcamento){

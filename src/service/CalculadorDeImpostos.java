@@ -1,7 +1,7 @@
 package service;
 
 import domain.Orcamento;
-import service.interfaces.Imposto;
+import domain.Imposto;
 
 public class CalculadorDeImpostos {
     public void realizarCalculo(Orcamento orcamento, Imposto impostoQualquer){

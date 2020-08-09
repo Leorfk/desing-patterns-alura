@@ -1,7 +1,5 @@
 package domain;
 
-import service.interfaces.Imposto;
-
 public class ICPP extends TemplateImpostoCondicional {
     @Override
     protected double minimaTaxacao(Orcamento orcamento) {

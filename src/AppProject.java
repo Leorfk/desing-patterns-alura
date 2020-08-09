@@ -2,17 +2,38 @@ import domain.*;
 import domain.enums.Formato;
 import service.*;
 import service.chanFileFormat.ChainFiles;
-import service.interfaces.Imposto;
+import domain.Imposto;
 import service.interfaces.Investimento;
-import service.interfaces.Response;
 
 public class AppProject {
     public static void main(String[] args) {
 //        testeInvestimento();
 //        testeOrcamento();
         //testeDescontos();
-        testeFileFormat();
+        //testeFileFormat();
+        testeInpostoComposto();
+        testeImpostoBrasileiro();
+    }
 
+    public static void testeImpostoBrasileiro(){
+        Imposto icms = new ICMS();
+        Imposto impostoComposto = new ImpostoBrasileiro(icms);
+
+        Orcamento orcamento = new Orcamento(5000.00);
+
+        double valor = impostoComposto.calcular(orcamento);
+
+        System.out.println(valor);
+    }
+
+    public static void testeInpostoComposto(){
+        Imposto impostoComplexo = new ISS(new ICMS());
+
+        Orcamento orcamento = new Orcamento(500.0);
+
+        double valor = impostoComplexo.calcular(orcamento);
+
+        System.out.println(valor);
 
     }
 

@@ -1,10 +1,16 @@
 package domain;
 
-import service.interfaces.Imposto;
+public abstract class TemplateImpostoCondicional extends Imposto {
 
-public abstract class TemplateImpostoCondicional implements Imposto {
+    public TemplateImpostoCondicional(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
+    public TemplateImpostoCondicional() {
+    }
+
     @Override
-    public double calcular(Orcamento orcamento) {
+    public final double calcular(Orcamento orcamento) {
         if (deveUsarTaxacaoMaxima(orcamento)){
             return maximaTaxacao(orcamento);
         }else {

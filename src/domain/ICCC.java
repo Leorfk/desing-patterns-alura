@@ -1,8 +1,14 @@
 package domain;
 
-import service.interfaces.Imposto;
+public class ICCC extends Imposto {
 
-public class ICCC implements Imposto {
+    public ICCC(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
+    public ICCC() {
+    }
+
     @Override
     public double calcular(Orcamento orcamento) {
         if(orcamento.getValor() < 1000.00){
