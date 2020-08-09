@@ -1,12 +1,16 @@
 package domain;
 
+import java.util.Date;
+
 public class Conta {
     private double saldo;
     private String titular;
+    private Date dataAbertura;
 
-    public Conta(double saldo, String titular) {
+    public Conta(double saldo, String titular, Date dataAbertura) {
         this.saldo = saldo;
         this.titular = titular;
+        this.dataAbertura = dataAbertura;
     }
 
     public Conta() {
@@ -24,4 +28,11 @@ public class Conta {
         return titular;
     }
 
+    public Date getDataAbertura() {
+        return dataAbertura;
+    }
+
+    public void setDataAbertura(Date dataAbertura) {
+        this.dataAbertura = dataAbertura;
+    }
 }

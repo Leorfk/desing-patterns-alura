@@ -5,14 +5,16 @@ import service.chanFileFormat.ChainFiles;
 import domain.Imposto;
 import service.interfaces.Investimento;
 
+import java.util.Date;
+
 public class AppProject {
     public static void main(String[] args) {
 //        testeInvestimento();
 //        testeOrcamento();
         //testeDescontos();
         //testeFileFormat();
-        testeInpostoComposto();
-        testeImpostoBrasileiro();
+//        testeInpostoComposto();
+//        testeImpostoBrasileiro();
     }
 
     public static void testeImpostoBrasileiro(){
@@ -39,7 +41,7 @@ public class AppProject {
 
     public static void testeFileFormat(){
         ChainFiles chainFiles = new ChainFiles();
-        Conta conta = new Conta(1000.00, "Leonardo Rodrigues Ferreira");
+        Conta conta = new Conta(1000.00, "Leonardo Rodrigues Ferreira", new Date());
         Requisicao request = new Requisicao(Formato.NO_FORMAT);
         chainFiles.generateFile(request, conta);
     }
@@ -60,7 +62,7 @@ public class AppProject {
     }
 
     public static void testeInvestimento(){
-        Conta conta = new Conta(1000.00, "");
+        Conta conta = new Conta(1000.00, "", new Date());
 
         Investimento arrojado = new InvestimentoArrojado();
         Investimento moderado = new InvestimentoModerado();

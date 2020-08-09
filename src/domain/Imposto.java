@@ -13,7 +13,7 @@ public abstract class Imposto {
     }
 
     public abstract double calcular(Orcamento orcamento);
-    
+
     protected double calculoDoOutroImposto(Orcamento orcamento){
         if (outroImposto == null){
             return 0;
